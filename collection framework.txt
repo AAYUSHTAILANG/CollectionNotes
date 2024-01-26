@@ -1,0 +1,577 @@
+		COLLECTION FRAMEWORK
+		====================
+Collection: it is the single entity/object which can store multiple data.
+
+Framework:-represents library.
+
+-It is the set of prededifed classes and interfaces which is used to store multiple data.
+-It contains 2 main parts
+		i)java.util.Collection
+		ii)java.util.Map->key value pair
+
+	
+	COLLECTION FRAMEWORK VS COLLECTION VS COLLECTIONS
+	-------------------------------------------------
+#Collection Framework:
+----------------------
+-It is an API which contains predefined classes and interfaces.
+
+#Collection(INTERFACE):
+-----------------------
+-It is the root interface (present in java.util.package)
+of all collection objects.
+
+#Collections(Utility Class):
+----------------------------
+It is the utility class containing STATIC METHODS ONLY.
+
+----------------------------------------------------------
+#COLLECTION HEIRARCHY
+---------------------
+		
+			               COLLECTION(I)
+	
+LIST(I)			               SET(I)						QUEUE(I)
+	
+
+ARRAYLIST(C)		HASHSET(C)		SORTEDSET(I)		PRIORITYQUEUE(C)		DEQUEUE(I)
+LINKED LIST(C)		
+VECTOR(LC)		LINKEDHASHSET(C)	NAVIGATIONSET(I)					ARRAYDEQUE(C)
+STACK(LC)
+						TREESET	(C)
+
+
+#MAP HEIRARCHY
+--------------
+
+					                MAP(I)
+
+HASHMAP(I)		IDENTITYHASHMAP(I)		WEAKHASHMAP(I)		SORTEDMAP(I)		HASHTABLE(C)
+
+LINKED HM(I)									NAVIGABLE(C)		DICTIONARY(I)
+
+										TREEMAP(C)		PROPERTIES(I)
+
+I-Interface
+C-Class
+LC-Legacy Class
+
+---------------------------------------------------------
+		COLLECTION INTERFACE
+		--------------------
+-java.util.Collection
+-extends Iterable
+-introduced in 1.2 version
+
+syntax:
+-------
+public interface Collection<E> extends Iterable<E>
+{
+	//methods
+}
+
+#Methods:
+---------
+i)public boolean add(object obj)
+ii)public boolean addAll(collection C)
+iii)boolean contains
+iv)boolean isEmpty
+v)remove(object)
+vi)clear()->removes all
+
+
+NOTE:
+-----
+remove():
+---------
+while using remove method if the object is NUMBER or CHARACTER then we have to provide INDEX of that element.
+
+ArrayList a1=new ArrayList();
+a1.add(100);
+a1.add(50);
+a1.add(70);
+syso(a1);//[100,50,70]
+
+//a1.remove(100);//exception//index out of bound
+a1.remove(0);//removes the element present at 0th index
+syso(a1);//[50,70]
+
+ArrayList a3=new ArrayList();
+		a3.add('a');
+		a3.add('b');
+		a3.add('c');
+		System.out.println(a3);
+		
+		//a3.remove('a');//exception//index out of bound//Index 97 out of bounds for length 3
+		a3.remove(0);
+		System.out.println(a3);//[b,c]
+
+
+if the object is STRING then we can directectly remove by providing that object.
+
+ArrayList a1=new ArrayList();
+a1.add("aaa");
+a1.add("bbb");
+a1.add("ccc");
+syso(a1);//[aaa,bbb,ccc]
+
+a1.remove("aaa");
+syso(a1);//[bbb,ccc]
+---------------------------------------------------------
+			SET AND LIST
+			------------
+List:
+-----
+-List is an index based data structure.
+-ordered.
+-can have duplicate elements
+-List can store any number of null values
+-List follows insertion order.
+-We can iterate the list by using ITERATOR(only forward iteration) AND ListIterator(both directions).
+
+Set:
+----
+-Set is not an index based data Structure.
+-Stores data according to hashcode values.
+-unordered.
+-cannot have duplicate elements.
+-can store ONLY one null value.
+-doesn't maintain insertion order.
+-only Iterator for iterating.
+
+
+NOTE:
+-----
+		ITERATOR AND LIST ITERATOR
+		--------------------------
+-both acts as cursor and are placed at the start.
+
+#Iterator:
+----------
+-only forward traversal possible.
+-methods:
+
+	i)hasNext()->check whether next element exists or not,return boolean.
+
+	ii)next()->retrives the element.
+
+ex:
+		Iterator iarr = arrlist.iterator();
+		
+		while(iarr.hasNext())
+		{
+			System.out.println(iarr.next());
+		}
+		
+		Iterator iSet=hset.iterator();
+		while(iSet.hasNext())
+		{
+			System.out.println(iSet.next());
+		}
+
+#ListIterator:
+--------------
+-can traverse in forward as well as backwards.
+-only applicable for list
+-methods:
+
+	i)hasNext()
+	ii)next()
+	iii)hasPrevious()
+	iv)previous()
+
+ex:
+
+	ListIterator larr = arrlist.listIterator();
+		
+		while(larr.hasNext())
+		{
+			System.out.println(larr.next());
+		}
+		
+		while(larr.hasPrevious())
+		{
+			System.out.println(larr.previous());
+		}
+		
+		//ListIterator lSet= hset.listIterator();//error//no such method present in set
+	
+
+---------------------------------------------------------
+			Enumeration
+			-----------
+-it is a cursor which is used to retrive collection objects one by one.
+-introduced in JDK 1.0 version.
+-can be used only with LEGACY CLASSES eg. vector,stack
+-elements() method
+	Enumeration e=v.elements()
+-Methods:
+	i)hasMoreElements()
+	ii)nextElement()
+-read only purpose.
+
+---------------------------------------------------------
+			ARRAYLIST
+			---------
+-java.util
+-implements List
+-growable or resizable array.
+-can grow dynamically at run time.
+-can store heterogenous data types.
+-can store duplicate elements.
+-can have as many null elements as we want.
+-follows insersertion order.
+-doesnt follows the sorting order.
+-non synchronized.
+-not thread safe.
+
+#Constructors:
+--------------
+1)no arg const:
+
+ArrayList al1 = new ArrayList();
+
+-creates an ArrayList with capacity 10.
+-size=0
+
+2)initial capacity const:
+
+ArrayList al2 = new ArrayList(int initialCapacity);
+ArrayList al2 = new ArrayList(6);
+
+-creates an ArrayList with capacity 6.
+
+3)Collection
+
+ArrayList al3 = new ArrayList(Collection c);
+ArrayList al1 = new ArrayList(al1);
+
+-creates an ArrayList woth capacity same as al1.
+
+#formula:
+---------
+new_capacity=(old_capacity*3)/2 +1;
+
+---------------------------------------------------------
+			LINKED LIST
+			-----------
+-java.util
+-implements List and Deque
+-underlying data structure of linkedlist is 
+		i)Doubly linked list
+		ii)Circular linked list
+-index based data structure.
+-can store heterogenous elements.
+-can insert duplicate elements.
+-can store multiple null values.
+-follows insertion order.
+-doesn't follow sorting order.
+-non synchronized collection.
+
+#Methods:
+---------
+-all present in ArrayList +
+-addFirst()
+-addLast()
+-getFirst()->return object
+-getLast()
+-removeFirst()
+-removeLast()
+
+---------------------------------------------------------
+		LAGACY CLASSES
+		--------------
+-some classes and interfaces were already made in version JDK 1.0
+
+-in the JDK 1.2 version Collection framework was introduced and these classes were modified so that they can be adjusted in the collection hierarchy, so these classes are known as legacy classes.
+
+-all legacy classes are SYNCHRONISED
+-thread safe
+-gurantee for data consistency
+
+-ex:Vector,Stack,Hashtabl,Dictionary.
+
+#properties of vector:
+----------------------
+-same as list +
+-synchronized collection.
+
+#methods:
+---------
+-addElement()
+-firstElement()
+-lastElement()
+-removeElement(Object obj)
+-removeElementAt(int index)
+-capacity()
+
+#Formula for vector:
+--------------------
+new_capacity=(old_capacity*2);
+
+---------------------------------------------------------
+			HASH SET
+			--------
+
+-java.util.
+-implements Set.
+-underlying data structure is HASHTABLE.
+-backuped by MAP.
+-makes  use of HASHCODE().
+
+#Properties:
+------------
+-not index based data structure.
+-stores elements according to their HASHCODE value.
+
+-if we want to decide the subgroup criteria ,then we should override hashcode() method. and if hashcode method is overridden then equals()method should also be overridden.
+
+-no duplicate element allowed as it takes use of MAP which has key value pair which has unqiue key.
+-cannot store multiple null value.
+-can store heterogeneous values.
+-unorderd.
+-doesn't follows sorting order.
+-non synchronized.
+---------------------------------------------------------
+			TREESET
+			-------
+-java.util
+-implements NavigableSet which implements SortedSet & Set
+-Underlying DS: Balaced TREE.
+
+#Properties:
+------------
+-not an index based ds.
+-doesn't follow the insertion order.
+*It follows the SORTING ORDER.
+-takes help of compareTo(Object obj) method.
+-stores Homogeneous data types only.
+-it cannot store the duplicate element.
+-non synchronized datastructure.
+-cannot store null element.
+
+NOTE:
+-----
+compareTo():
+------------
+-Comparable interface method
+-used to compare the current object with the specified object.
+-returns integer:
+	+ve => if current obj > specified obj
+	-ve => if current obj < specified obj
+	 0  => if equal
+
+ex:
+--
+public class MyClass implements Comparable<MyClass> {
+    private int value;
+
+    @Override
+    public int compareTo(MyClass o) {
+        return Integer.compare(this.value, o.value);
+    }
+}
+
+
+compare():
+----------
+-Comparator Interface method
+-used for third party comparision.
+-For those classes whose source code is not available.
+-returns int.
+
+ex:
+---
+
+public class MyComparator implements Comparator<MyClass> {
+    @Override
+    public int compare(MyClass o1, MyClass o2) {
+        return Integer.compare(o1.getValue(), 	o2.getValue());
+    }
+}
+
+
+---------------------------------------------------------
+		QUEUE Interface
+		---------------
+-FIFO implementation.
+-Priority Queue.
+
+#Priority Queue:
+----------------
+-retrived on the basis of PRIORITY.
+-priority is specified by making use of Comparable/Comparator.
+-Element do not get stored in PRIORITY ORDER.
+-But RETRIVAL is always in PRIORITY ORDER.
+
+#operations:
+------------
+
+1)Peek()=>retrives front of queue
+2)Pool()=>removing front od queue
+
+Queue<String> words = new PriorityQueue<>();
+
+String->arranged in priority order with the help of compareTo() method.
+
+Higher priority: Alphabetically smaller strings.
+
+---------------------------------------------------------
+		MAP IMPLEMENTATION
+		------------------
+
+-Interface
+-java.util
+-not a part of collection hierarchy
+-does no inherit collection interface
+-introduced in JDK 1.2 version
+
+#Properties:
+------------
+-stores data in KEY-VALUE PAIR.
+-KEY is always UNIQUE.
+-duplcate VALUE are ALLOWED.
+-ENTRY->1 KEY-VALUE PAIR
+-only ONE NULL KEY allowed.
+-MULTIPLE NULL VALUE allowed.
+-doesn't follows sorting and insertion order.
+
+
+#Methods:
+---------
+-put(object,object);
+-toString()->{key=value,key=value}
+-clear()
+-containsKey(key);->return boolean
+-containsValue(value);
+-entrySet()->converts map into set
+-get(key)->return value of that key or null if not found.
+-isEmpty()
+-putAll()
+-remove(key)
+-replace(key,value)
+-size()
+
+NOTE:
+-----
+map.put(1,"aaa");
+map.put(1,"bbb");
+syso(map);//bbb
+-replaces new value with old
+
+I)HASHMAP:
+---------
+-java.util
+-extends AbstractMap implements Map
+-version JDK1.2
+-UNDERLINE DATASTRUCTURE: HASHTABLE
+
+
+#Properties:
+------------
+-Same as Map.
+-non synchronized.
+-Insertion order is not mentioned.
+-It follows hashing for re-ordering.
+
+
+NOTE:
+-----
+HashMap capacity:
+-----------------
+-no. of buckets in hash table.
+-initial capacity will be 16.
+
+Loadfactor:
+-----------
+-is a Threshold,when we add elements in HashMap and it crosses the threshold the capacity of HashMap will get increase.
+-Default load factor of HashMap is 0.75
+
+---------------------------------------------------------
+II)LinkedHashMap:
+---------------
+-Insertion order is preserved.
+-follows hashing.
+---------------------------------------------------------
+III)TreeMap:
+---------
+-java.util
+-extends NavigableMap which implements SortedMap.
+-introduced in JDK 1.2 version
+-Underline DS: REDBLACK TREE
+
+#Properties:
+------------
+-same as Map +
+-Does not follows insertion order but follows the sorting order with respect to key.
+-can store homogeneous(for default sorting) and heterogeneous elements(when we provide our criteria).
+-cannot store null values.
+-non synchronized.
+
+#Methods:
+---------
+-ceilingEntry()->that Entry or key greater than that.
+-ceilingKey()->that key or key greater than that.
+-floorEntry()
+-floorKey()
+-get()->that element or null if not found
+-firstEntry()->return the first entry
+-firstKey()
+-headMap()
+-higherEntry()->only the higher entry and not equal.
+-subMap(a,b)->a,b-keys b excluded.
+
+---------------------------------------------------------
+NOTE:
+-----
+for iteration convert map into set.
+
+Map<Integer,String> ------>Set<Map.Entry<Integer,String>>
+		   entrySet()
+
+-entrySet() is a method used for converting map to set.
+
+Set<Entry<Integer,String>set=map.entrySet();
+now all methods of collections can be used.
+
+ENTRY INTERFACE:
+----------------
+Entry interface has methods:
+-getKey() 
+-getValue()
+
+
+---------------------------------------------------------
+			HASH TABLE
+			----------
+-java.util
+-implements Map and dictionary
+-legacy class 
+-JDK 1.0 version
+-Underline DS: Hashtable
+
+#Properties:
+------------
+-Same as Map +
+-synchronized
+		
+NOTE:
+-----
+Initial Capacity: 11(0 to 10 index buckets)
+if collision : linkedlist
+retrival of data : top to bottom and right to left
+
+---------------------------------------------------------
+		CONCURRENT MODIFICATION EXCEPTION
+		---------------------------------
+-when a collection is modified while it is being iterated over, and the modification is not performed through the iterator's own methods.
+
+List<String> myList = new ArrayList<>();
+myList.add("One");
+myList.add("Two");
+myList.add("Three");
+
+// Attempting to modify the list while iterating over it
+for (String element : myList) {
+    myList.remove(element);  // This will throw ConcurrentModificationException
+}
