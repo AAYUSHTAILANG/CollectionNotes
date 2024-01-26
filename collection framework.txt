@@ -561,9 +561,9 @@ Initial Capacity: 11(0 to 10 index buckets)
 if collision : linkedlist
 retrival of data : top to bottom and right to left
 
----------------------------------------------------------
-		CONCURRENT MODIFICATION EXCEPTION
-		---------------------------------
+----------------------------------------------------------------------------------------------------------------------------
+					CONCURRENT MODIFICATION EXCEPTION
+					---------------------------------
 -when a collection is modified while it is being iterated over, and the modification is not performed through the iterator's own methods.
 
 List<String> myList = new ArrayList<>();
