@@ -1,5 +1,5 @@
-		COLLECTION FRAMEWORK
-		====================
+						COLLECTION FRAMEWORK
+						====================
 Collection: it is the single entity/object which can store multiple data.
 
 Framework:-represents library.
@@ -10,8 +10,8 @@ Framework:-represents library.
 		ii)java.util.Map->key value pair
 
 	
-	COLLECTION FRAMEWORK VS COLLECTION VS COLLECTIONS
-	-------------------------------------------------
+				COLLECTION FRAMEWORK VS COLLECTION VS COLLECTIONS
+				-------------------------------------------------
 #Collection Framework:
 ----------------------
 -It is an API which contains predefined classes and interfaces.
@@ -25,9 +25,9 @@ of all collection objects.
 ----------------------------
 It is the utility class containing STATIC METHODS ONLY.
 
-----------------------------------------------------------
-#COLLECTION HEIRARCHY
----------------------
+----------------------------------------------------------------------------------------------------------------------------
+#COLLECTION HEIRARCHY:
+----------------------
 		
 			               COLLECTION(I)
 	
@@ -41,8 +41,8 @@ STACK(LC)
 						TREESET	(C)
 
 
-#MAP HEIRARCHY
---------------
+#MAP HEIRARCHY:
+---------------
 
 					                MAP(I)
 
@@ -56,9 +56,9 @@ I-Interface
 C-Class
 LC-Legacy Class
 
----------------------------------------------------------
-		COLLECTION INTERFACE
-		--------------------
+----------------------------------------------------------------------------------------------------------------------------
+						COLLECTION INTERFACE
+						--------------------
 -java.util.Collection
 -extends Iterable
 -introduced in 1.2 version
@@ -117,9 +117,9 @@ syso(a1);//[aaa,bbb,ccc]
 
 a1.remove("aaa");
 syso(a1);//[bbb,ccc]
----------------------------------------------------------
-			SET AND LIST
-			------------
+----------------------------------------------------------------------------------------------------------------------------
+						SET AND LIST DIFFERENCE
+						-----------------------
 List:
 -----
 -List is an index based data structure.
@@ -142,8 +142,8 @@ Set:
 
 NOTE:
 -----
-		ITERATOR AND LIST ITERATOR
-		--------------------------
+						ITERATOR AND LIST ITERATOR
+						--------------------------
 -both acts as cursor and are placed at the start.
 
 #Iterator:
@@ -197,9 +197,9 @@ ex:
 		//ListIterator lSet= hset.listIterator();//error//no such method present in set
 	
 
----------------------------------------------------------
-			Enumeration
-			-----------
+----------------------------------------------------------------------------------------------------------------------------
+						Enumeration
+						-----------
 -it is a cursor which is used to retrive collection objects one by one.
 -introduced in JDK 1.0 version.
 -can be used only with LEGACY CLASSES eg. vector,stack
@@ -210,9 +210,9 @@ ex:
 	ii)nextElement()
 -read only purpose.
 
----------------------------------------------------------
-			ARRAYLIST
-			---------
+----------------------------------------------------------------------------------------------------------------------------
+						ARRAYLIST
+						---------
 -java.util
 -implements List
 -growable or resizable array.
@@ -252,9 +252,9 @@ ArrayList al1 = new ArrayList(al1);
 ---------
 new_capacity=(old_capacity*3)/2 +1;
 
----------------------------------------------------------
-			LINKED LIST
-			-----------
+----------------------------------------------------------------------------------------------------------------------------
+						LINKED LIST
+						-----------
 -java.util
 -implements List and Deque
 -underlying data structure of linkedlist is 
@@ -278,9 +278,9 @@ new_capacity=(old_capacity*3)/2 +1;
 -removeFirst()
 -removeLast()
 
----------------------------------------------------------
-		LAGACY CLASSES
-		--------------
+----------------------------------------------------------------------------------------------------------------------------
+						LAGACY CLASSES
+						--------------
 -some classes and interfaces were already made in version JDK 1.0
 
 -in the JDK 1.2 version Collection framework was introduced and these classes were modified so that they can be adjusted in the collection hierarchy, so these classes are known as legacy classes.
@@ -309,9 +309,9 @@ new_capacity=(old_capacity*3)/2 +1;
 --------------------
 new_capacity=(old_capacity*2);
 
----------------------------------------------------------
-			HASH SET
-			--------
+----------------------------------------------------------------------------------------------------------------------------
+						HASH SET
+						--------
 
 -java.util.
 -implements Set.
@@ -332,9 +332,9 @@ new_capacity=(old_capacity*2);
 -unorderd.
 -doesn't follows sorting order.
 -non synchronized.
----------------------------------------------------------
-			TREESET
-			-------
+----------------------------------------------------------------------------------------------------------------------------
+						TREESET
+						-------
 -java.util
 -implements NavigableSet which implements SortedSet & Set
 -Underlying DS: Balaced TREE.
@@ -391,9 +391,9 @@ public class MyComparator implements Comparator<MyClass> {
 }
 
 
----------------------------------------------------------
-		QUEUE Interface
-		---------------
+----------------------------------------------------------------------------------------------------------------------------
+						QUEUE Interface
+						---------------
 -FIFO implementation.
 -Priority Queue.
 
@@ -416,9 +416,9 @@ String->arranged in priority order with the help of compareTo() method.
 
 Higher priority: Alphabetically smaller strings.
 
----------------------------------------------------------
-		MAP IMPLEMENTATION
-		------------------
+----------------------------------------------------------------------------------------------------------------------------
+					MAP IMPLEMENTATION
+					------------------
 
 -Interface
 -java.util
@@ -487,12 +487,12 @@ Loadfactor:
 -is a Threshold,when we add elements in HashMap and it crosses the threshold the capacity of HashMap will get increase.
 -Default load factor of HashMap is 0.75
 
----------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
 II)LinkedHashMap:
 ---------------
 -Insertion order is preserved.
 -follows hashing.
----------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
 III)TreeMap:
 ---------
 -java.util
@@ -521,7 +521,7 @@ III)TreeMap:
 -higherEntry()->only the higher entry and not equal.
 -subMap(a,b)->a,b-keys b excluded.
 
----------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
 NOTE:
 -----
 for iteration convert map into set.
@@ -541,9 +541,9 @@ Entry interface has methods:
 -getValue()
 
 
----------------------------------------------------------
-			HASH TABLE
-			----------
+----------------------------------------------------------------------------------------------------------------------------
+						HASH TABLE
+						----------
 -java.util
 -implements Map and dictionary
 -legacy class 
